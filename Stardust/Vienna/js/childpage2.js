@@ -13,6 +13,7 @@
                 fontFamily:"san-serif",//主题文字字体，默认微软雅黑
                 fontSize:25//主题文字字体大小，默认为18px
             },
+            left: '30%',
             padding:5,
         },
         color: ["#2f89cf"],
@@ -174,6 +175,7 @@
                 fontFamily:"san-serif",//主题文字字体，默认微软雅黑
                 fontSize:25//主题文字字体大小，默认为18px
             },
+            left:'30%',
             padding:5,
         },
         xAxis: {

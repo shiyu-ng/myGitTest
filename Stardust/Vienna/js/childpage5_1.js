@@ -1,19 +1,17 @@
+
+
 (function () {
-    // 1实例化对象
-    var myChart = echarts.init(document.querySelector(".fen .char"));
+    var myChart = echarts.init(document.querySelector(".fen5_1 .charnx"));
     // 2. 指定配置项和数据
-    var option;
-
     option = {
-
         title: {
-            text: '大旅游+大扶贫：助推全省89.7万贫困人口收益增收脱贫',
-            right: '30%',
+            text: '贵州省综合效用值及排名对比图',
             textStyle:{//标题内容的样式
                 color:'#ffffff',
                 fontFamily:"san-serif",//主题文字字体，默认微软雅黑
                 fontSize:35//主题文字字体大小，默认为18px
             },
+            left: '33%',
         },
         tooltip: {
             trigger: 'axis',
@@ -24,34 +22,23 @@
             borderColor: 'rgba(75, 253, 238, 0.4)',
             textStyle: {
                 color: '#CFE3FC',
-                fontSize:20
             },
             borderWidth: 1,
+
         },
         legend: [
             {
-                data: ['贵州'],
+                data: ['效用值'],
                 top: '80',
-                x: '10%',
-                itemWidth: 14,
-                borderColor: 'rgba(255, 192, 0, 1)',
-                textStyle: {
-                    color: '#c1cadf',
-                    fontSize: 20
-                }
-            },
-            {
-                data: ['全国'],
-                top: '80',
-                x: '30%',
+                x: '40%',
                 itemWidth: 14,
                 textStyle: {
                     color: '#c1cadf',
-                    fontSize: 20
+                    fontSize: 30
                 }
             },
             {
-                data: ['占比(%)'],
+                data: ['排位'],
                 x: '50%',
                 top: '80',
                 itemStyle: {
@@ -59,7 +46,7 @@
                 },
                 textStyle: {
                     color: '#c1cadf',
-                    fontSize: 20
+                    fontSize: 30
                 }
             }
         ],
@@ -83,7 +70,7 @@
                 axisTick: {
                     show: false
                 },
-                data: ['2015年', '2016年', '2017年', '2018年', '2019年'],
+                data: ['2010年', '2011年', '2012年', '2013年', '2014年', '2015年', '2016年', '2017年', '2018年','2019年'],
                 axisLine: {
                     lineStyle: {
                         color: 'rgba(51, 176, 255, 1)'
@@ -106,7 +93,6 @@
                     show: true,
                     lineStyle: {
                         color: 'rgba(120, 160, 236, 1)',
-                        fontSize: 25
                     },
                     symbol: ['none', 'arrow'],
                     symbolSize: [5, 12],
@@ -118,7 +104,7 @@
                     fontSize: 25
                 },
                 splitLine: {
-                    show: false,
+                    show: true,
                     lineStyle: {
                         color: 'rgba(39, 57, 75, 1)',
                         width: 1,
@@ -142,15 +128,13 @@
                     symbolOffset: [0, 10]
                 },
                 min: 0,
-                max:25,
                 axisLabel: {
                     interval: 0,
                     color: 'rgba(207, 227, 252, 1)',
-                    formatter: '{value} %',
                     fontSize: 25
                 },
                 splitLine: {
-                    show: false,
+                    show: true,
                     lineStyle: {
                         color: 'rgba(39, 57, 75, 1)',
                         width: 1,
@@ -161,24 +145,24 @@
         ],
         series: [
             {
-                name: '占比(%)',
+                name: '排位',
                 yAxisIndex: 1,
                 type: 'line',
-                smooth: true,
+                smooth: false,
 
-                areaStyle: {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                        {
-                            offset: 0,
-                            color: 'rgba(98, 227, 255, 1)'
-                        },
-                        {
-                            offset: 1,
-                            color: 'rgba(98, 227, 255, 0)'
-                        }
-                    ])
+                data: [23,24,23,24,26,22,17,18,18,16],
+                markPoint: {
+                    symbolSize: 90,
+                    label:{
+                        color: "rgb(37,167,110)",
+                        show: true,
+                        fontSize: 30,
+                    },
+                    data: [
+                        { type: 'min', name: 'Min' }
+                    ],
+                    fontSize: 10
                 },
-                data: [10.27, 12.76, 15.59, 18.46, 21.52],
                 symbol: 'circle',
                 symbolSize: 8,
                 itemStyle: {
@@ -195,38 +179,7 @@
                 type: 'bar',
 
                 yAxisIndex: 0,
-                name: '贵州',
-                itemStyle: {
-                    normal: {
-                        color: new echarts.graphic.LinearGradient(
-                            0,
-                            0,
-                            0,
-                            1,
-                            [
-                                {
-                                    offset: 0,
-                                    color: 'rgba(232, 98, 32, 1)'
-                                },
-                                {
-                                    offset: 1,
-                                    color: 'rgba(232, 98, 32, 0)'
-                                }
-                            ],
-                            false
-                        )
-                    }
-                },
-                barWidth: 24,
-                data: [
-                    35.1282, 50.2754, 71.1681, 94.7103, 123.1886
-                ]
-            },
-            {
-                type: 'bar',
-
-                yAxisIndex: 0,
-                name: '全国',
+                name: '效用值',
                 itemStyle: {
                     normal: {
                         color: new echarts.graphic.LinearGradient(
@@ -249,34 +202,12 @@
                     }
                 },
                 barWidth: 24,
-                data: [
-                    341.9505, 393.90, 456.6077, 512.7829, 572.5092
-                ]
+                data: [23.21,22.62,20.77,22.60,20.41,21.22,25.64,22.19,22.27,23.60],
             }
         ]
     }
-    // 3. 把配置给实例对象
     myChart.setOption(option);
-
-    // 5. 让图表跟随屏幕自动的去适应
-    window.addEventListener("resize", function () {
-        myChart.resize();
-    });
-
-})();
-
-(function () {
-    var myChart = echarts.init(document.querySelector(".fen1 .char"));
-    // 2. 指定配置项和数据
-    var option;
-
-
-
-
-    // 3. 把配置项给实例对象
-
-    myChart.setOption(option);
-
+    // 监听浏览器缩放，图表对象调用缩放resize函数
     // 5. 让图表跟随屏幕自动的去适应
     window.addEventListener("resize", function () {
         myChart.resize();

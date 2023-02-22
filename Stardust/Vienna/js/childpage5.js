@@ -30,7 +30,7 @@
             type: 'value',
             axisLabel: {
                 color: "rgba(255,255,255,1)",
-                fontSize: 30
+                fontSize: 25
             },
         },
         yAxis: {
@@ -38,7 +38,7 @@
             data: ['2015年', '2016年', '2017年', '2018年', '2019年'],
             axisLabel: {
                 color: "rgba(255,255,255,1)",
-                fontSize: 30
+                fontSize: 25
             },
         },
         series: [
@@ -120,8 +120,9 @@
             textStyle:{//标题内容的样式
                 color:'#ffffff',
                 fontFamily:"san-serif",//主题文字字体，默认微软雅黑
-                fontSize:25//主题文字字体大小，默认为18px
+                fontSize:30//主题文字字体大小，默认为18px
             },
+            left:'30%',
             padding:5,
         },
         color: ["#63b0ff"],
